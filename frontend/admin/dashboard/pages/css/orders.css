@@ -1,0 +1,40 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1a1a2e;
+    color: #f5f6fa;
+    font-family: Arial, sans-serif;
+  }
+
+  thead {
+    background-color: #333;
+  }
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #444;
+  }
+
+  tbody tr:hover {
+    background-color: #444;
+    cursor: pointer;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #333;
+  }
+
+  tbody tr td:first-child {
+    text-align: center;
+  }
+
+  input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+
+  /* Highlight row when checkbox is selected */
+  tbody tr.selected {
+    background-color: #555;
+  }

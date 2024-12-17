@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../../../frontend/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+    /* Body */
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        text-align: left;
+    }
+
+    /* Form Container */
+    .right-section {
+        background-color: #fff;
+        color: #333;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 95%;
+    }
+
+    /* User Account Container */
+    .user-account-container {
+        width: 100%;
+        max-width: 540px;
+        background: #ffffff;
+        padding: 2px;
+        border-radius: 8px;
+    }
+
+    h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.8em;
+        color: #1a1a2e;
+        /* Changed to #1a1a2e */
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    p {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.9em;
+        color: #666;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* Form */
+    .user-account-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .form-group label {
+        width: 290px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    input:focus,
+    textarea:focus {
+        border-color: #1a1a2e;
+        /* Changed to #1a1a2e */
+        outline: none;
+    }
+
+    textarea {
+        resize: vertical;
+        height: 100px;
+    }
+
+    .create-account-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+        background-color: #1a1a2e;
+        /* Changed to #1a1a2e */
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .create-account-btn:hover {
+        background-color: #333;
+    }
+
+    /* General styling for the select element */
+    #entry_type {
+        width: 100%;
+        /* Makes it responsive */
+        padding: 10px;
+        /* Adds inner spacing */
+        font-size: 16px;
+        /* Increases readability */
+        font-family: 'Arial', sans-serif;
+        /* Clean font */
+        color: #555;
+        /* Neutral text color */
+        background-color: #f9f9f9;
+        /* Light background */
+        border: 1px solid #ccc;
+        /* Subtle border */
+        border-radius: 5px;
+        /* Rounded corners */
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        /* Soft inner shadow */
+        appearance: none;
+        /* Removes default arrow styling */
+        outline: none;
+        /* Removes focus outline */
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        /* Smooth hover/focus effects */
+    }
+
+    /* Hover effect for the select element */
+    #entry_type:hover {
+        border-color: #888;
+        /* Darker border on hover */
+        background-color: #f0f0f0;
+        /* Slightly darker background */
+    }
+
+    /* Focus effect for the select element */
+    #entry_type:focus {
+        border-color: #007bff;
+        /* Blue border for focus */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        /* Subtle blue glow */
+    }
+
+    /* Option styling */
+    #entry_type option {
+        font-size: 16px;
+        /* Matches the font size of the select */
+        color: #333;
+        /* Text color for options */
+    }
+
+    /* Disabled option styling */
+    #entry_type option:disabled {
+        color: #999;
+        /* Muted color for disabled options */
+    }
+</style>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Allcomm</h2>
+            </div>
+            <nav>
+                <ul>
+
+                    <li onclick="loadContent('orders.html')">
+                        <i class="fas fa-box"></i> Orders
+                    </li>
+                    <li onclick="loadContent('inventory.html')">
+                        <i class="fas fa-warehouse"></i> Inventory
+                    </li>
+                   
+
+                    <li onclick="loadContent('users.html')">
+                        <i class="fas fa-users"></i> Users
+                    </li>
+                    <li onclick="loadContent('payments.html')">
+                        <i class="fas fa-credit-card"></i> Payments
+                    </li>
+                    <li onclick="loadContent('category.html')">
+                        <i class="fas fa-users"></i> Category
+                    </li>
+                    
+
+                    <li onclick="loadContent('settings.html')">
+                        <i class="fas fa-cog"></i> Settings
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <ul>
+                    <li>
+                        <i class="fas fa-user-circle"></i> Profile
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Settings</h1>
+               
+                    <div class="import-export">
+                      <button onclick="handleLogout()">Logout</button>
+                    </div>
+               
+            </header>
+            <div class="right-section">
+                <div class="user-account-container">
+                    <h1>Add Entry</h1>
+                    <p>Select the type of entry and fill in the required details</p>
+                    <form class="user-account-form" id="unifiedForm">
+                        <!-- Entry Type -->
+                        <div class="form-group">
+                            <label for="entry_type">Entry Type</label>
+                            <select id="entry_type" required onchange="toggleFormFields()">
+                                <option value="" disabled selected>Select Type</option>
+                                <option value="banner">Banner</option>
+                                <option value="flash_sale">Flash Sale</option>
+                            </select>
+                        </div>
+
+
+                        <!-- Banner Fields -->
+                        <div id="bannerFields" style="display: none;">
+                            <div class="form-group">
+                                <label for="image_url">Image URL</label>
+                                <input type="url" id="image_url" placeholder="Banner Image URL" />
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" id="title" placeholder="Banner Title" />
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="link">Link</label>
+                                <input type="url" id="link" placeholder="Link Associated with the Banner" />
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="priority">Priority</label>
+                                <input type="number" id="priority"
+                                    placeholder="Priority (e.g., 0 for highest priority)" />
+                            </div>
+                        </div>
+
+                        <!-- Flash Sale Fields -->
+                        <div id="flashSaleFields" style="display: none;">
+                            <div class="form-group">
+                                <label for="product_id">Product ID</label>
+                                <input type="number" id="product_id" placeholder="Product ID" />
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="discounted_price">Discounted Price</label>
+                                <input type="number" id="discounted_price" placeholder="Discounted Price" step="0.01" />
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="start_time">Start Time</label>
+                                <input type="datetime-local" id="start_time" />
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="end_time">End Time</label>
+                                <input type="datetime-local" id="end_time" />
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="create-account-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <!-- 2nd sidebar -->
+      
+    </div>
+</body>
+<script src="../pages/js/settings.js"></script>
+<script src="../dashboard/pages/js/usersscript.js"></script>
+<script src="../../js/main.js"></script>
+
+<script>
+    window.handleLogout = function () {
+        sessionStorage.clear();
+        localStorage.clear();
+        window.location.href = "../../../login.html";
+        console.log("User logged out successfully");
+    };
+</script>
+
+</html>

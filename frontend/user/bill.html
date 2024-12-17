@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary - E-Commerce Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px 0;
+}
+
+main .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.order-summary {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.order-summary .user-info, .order-summary .order-details, .order-summary .payment-summary {
+    margin-bottom: 20px;
+}
+
+.order-summary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-summary table th, .order-summary table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.payment-summary p {
+    margin: 5px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons .btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+</style>
+<body>
+
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Order Summary</h1>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="container">
+            <!-- Order Summary -->
+            <section class="order-summary">
+                <h2>Your Order</h2>
+
+                <!-- User Info -->
+                <div class="user-info">
+                    <h3>User Information</h3>
+                    <p><strong>Name:</strong> John Doe</p>
+                    <p><strong>Email:</strong> johndoe@example.com</p>
+                    <p><strong>Shipping Address:</strong> 1234 Elm St, Springfield, IL, 62701</p>
+                </div>
+
+                <!-- Order Details -->
+                <div class="order-details">
+                    <h3>Order Details</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic content will be added here using JavaScript -->
+                            <tr>
+                                <td>
+                                    <img src="laptop.jpg" alt="Laptop" width="100">
+                                    <span>Laptop</span>
+                                </td>
+                                <td>2</td>
+                                <td>$500.00</td>
+                                <td>$1000.00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="smartphone.jpg" alt="Smartphone" width="100">
+                                    <span>Smartphone</span>
+                                </td>
+                                <td>1</td>
+                                <td>$300.00</td>
+                                <td>$300.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Payment Summary -->
+                <div class="payment-summary">
+                    <h3>Payment Summary</h3>
+                    <p><strong>Subtotal:</strong> $1300.00</p>
+                    <p><strong>Shipping:</strong> $25.00</p>
+                    <p><strong>Total:</strong> $1325.00</p>
+                </div>
+
+                <!-- Buttons -->
+                <div class="buttons">
+                    <a href="checkout.html" class="btn">Proceed to Checkout</a>
+                    <a href="cart.html" class="btn">Back to Cart</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 E-Commerce Application. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const orderId = 123;  // Example order ID, this would come from the backend or URL
+        const orderContainer = document.querySelector(".order-details tbody");
+    
+        fetch(`/api/order/${orderId}`)  // Replace with your API endpoint
+            .then(response => response.json())
+            .then(data => {
+                const orderItems = data.order_items;
+                let total = 0;
+                orderItems.forEach(item => {
+                    const productRow = document.createElement("tr");
+    
+                    productRow.innerHTML = `
+                        <td>
+                            <img src="${item.image_url}" alt="${item.name}" width="100">
+                            <span>${item.name}</span>
+                        </td>
+                        <td>${item.quantity}</td>
+                        <td>$${item.price_at_time}</td>
+                        <td>$${(item.quantity * item.price_at_time).toFixed(2)}</td>
+                    `;
+                    orderContainer.appendChild(productRow);
+    
+                    total += item.quantity * item.price_at_time;
+                });
+    
+                // Update the payment summary
+                const shippingCost = 25.00;  // Example shipping cost
+                const totalAmount = total + shippingCost;
+                document.querySelector(".payment-summary p strong").innerText = `$${total.toFixed(2)}`;
+                document.querySelector(".payment-summary p:last-child strong").innerText = `$${totalAmount.toFixed(2)}`;
+            })
+            .catch(error => console.error("Error fetching order data:", error));
+    });
+    
+</script>
+</html>

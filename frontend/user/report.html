@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Bill</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Global Styles */
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          padding: 20px;
+        }
+
+        .bill-container {
+          background-color: #fff;
+          padding: 30px;
+          border-radius: 8px;
+          width: 70%;
+          margin: auto;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          border: 1px solid #e6e6e6;
+        }
+
+        h1, h2, h3 {
+          color: #1a1a2e;
+          font-weight: 700;
+        }
+
+        .customer-details, .order-details, .products, .total-amount {
+          margin-bottom: 30px;
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        th, td {
+          padding: 12px;
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+          font-size: 16px;
+        }
+
+        th {
+          background-color: #1a1a2e;
+          color: #fff;
+        }
+
+        td {
+          background-color: #f9f9f9;
+        }
+
+        footer {
+          text-align: center;
+          font-size: 14px;
+          margin-top: 30px;
+        }
+
+        .total-amount {
+          font-size: 24px;
+          font-weight: 700;
+          color: #1a1a2e;
+        }
+
+        footer p {
+          font-style: italic;
+          color: #555;
+        }
+
+        /* Custom Styling for the Buttons and Text */
+        button {
+          background-color: #1a1a2e;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+          border-radius: 5px;
+          font-weight: bold;
+          font-size: 14px;
+        }
+
+        button:hover {
+          background-color: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .bill-container {
+              width: 90%;
+              padding: 20px;
+          }
+
+          table {
+              font-size: 14px;
+          }
+
+          .total-amount {
+              font-size: 20px;
+          }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bill-container">
+        <h1>Customer Bill</h1>
+        
+        <div class="customer-details">
+            <h2>User Information</h2>
+            <p><strong>Name:</strong> <span id="user-name"></span></p>
+            <p><strong>Email:</strong> <span id="user-email"></span></p>
+            <p><strong>Phone:</strong> <span id="user-phone"></span></p>
+        </div>
+        
+        
+        <div class="products">
+            <h2>Purchased Items</h2>
+            <table id="products-table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody id="product-items">
+                    <!-- Product items will be added dynamically -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="total-amount">
+            <h3>Total: €<span id="total-amount">0.00</span></h3>
+        </div>
+
+        <footer>
+            <p>Thank you for shopping with us!</p>
+        </footer>
+    </div>
+
+    <script src="apicalls/generatereport.js"></script>
+
+</body>
+</html>

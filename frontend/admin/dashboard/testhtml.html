@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #ffffff; /* White background */
+        color: #000000; /* Black text for contents */
+        font-family: Arial, sans-serif;
+      }
+      
+      thead {
+        background-color: #1a1a2e;
+ /* Black background for headers */
+        color: #ffffff; /* White text for headers */
+      }
+      
+      th {
+        font-size: 16px;
+        font-weight:400; /* Bold headers */
+      }
+      
+      td {
+        font-size: 13px;
+        font-weight:100; /* Non-bold table contents */
+        color: #000000; /* Black text for contents */
+      }
+      
+      th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 2px solid #ccc; /* Light border */
+      }
+      
+      tbody tr:hover {
+        background-color: #f1f1f1; /* Light gray hover effect */
+        cursor: pointer;
+      }
+      
+      tbody tr {
+        border-bottom: 1px solid #ddd; /* Light gray border */
+      }
+      
+      tbody tr td:first-child {
+        text-align: center;
+      }
+      
+      input[type="checkbox"] {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+      
+      /* Highlight row when checkbox is selected */
+      tbody tr.selected {
+        background-color: #f9f9f9; /* Light gray for selected rows */
+      }
+      
+</style>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Allcomm</h2>
+            </div>
+            <nav>
+                <ul>
+                   
+                    <li onclick="loadContent('orders.html')">
+                        <i class="fas fa-box"></i> Orders
+                    </li>
+                    <li onclick="loadContent('inventory.html')">
+                        <i class="fas fa-warehouse"></i> Inventory
+                    </li>
+                   
+
+                    <li onclick="loadContent('users.html')">
+                        <i class="fas fa-users"></i> Users
+                    </li>
+                    <li onclick="loadContent('payments.html')">
+                        <i class="fas fa-credit-card"></i> Payments
+                    </li>
+                    <li onclick="loadContent('category.html')">
+                        <i class="fas fa-users"></i> Category
+                    </li>
+                    
+
+                    <li onclick="loadContent('settings.html')">
+                        <i class="fas fa-cog"></i> Settings
+                    </li>
+                </ul>
+            </nav>
+           <div class="sidebar-footer">
+    <ul>
+        <li>
+            <i class="fas fa-user-circle"></i> Profile
+        </li>
+    </ul>
+</div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>inventory</h1>
+            </header>
+            <div class="right-section">
+                <div class="user-account-container">
+                  <h1>Add Product</h1>
+                  <p>Enter the details of the product you wish to add</p>
+                  <form class="user-account-form">
+                    
+                    <div class="form-group">
+                      <label for="product_id">Product ID</label>
+                      <input type="text" id="product_id" placeholder="Product ID" required />
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" id="name" placeholder="Product Name" required />
+                    </div>
+              
+                    <div class="form-group">
+                      <label for="description">Description</label>
+                      <textarea id="description" placeholder="Product Description" required></textarea>
+                    </div>
+              
+                    <div class="form-group">
+                      <label for="price">Price</label>
+                      <input type="number" id="price" placeholder="Product Price" required />
+                    </div>
+              
+                    <div class="form-group">
+                      <label for="discounted_price">Discounted Price</label>
+                      <input type="number" id="discounted_price" placeholder="Discounted Price" />
+                    </div>
+              
+                    <div class="form-group">
+                      <label for="stock">Stock (Available Units)</label>
+                      <input type="number" id="stock" placeholder="Stock Available" required />
+                    </div>
+              
+                    <div class="form-group">
+                      <label for="category_id">Category ID</label>
+                      <input type="number" id="category_id" placeholder="Category ID" required />
+                    </div>
+              
+                    <div class="form-group">
+                      <label for="image_url">Image URL</label>
+                      <input type="url" id="image_url" placeholder="Product Image URL" required />
+                    </div>
+              
+                    <div class="form-group">
+                      <label for="rating">Rating</label>
+                      <input type="number" id="rating" placeholder="Average Rating" min="0" max="5" step="0.1" />
+                    </div>
+              
+                    <div class="form-group">
+                      <label for="reviews_count">Reviews Count</label>
+                      <input type="number" id="reviews_count" placeholder="Number of Reviews" />
+                    </div>
+              
+                    <div class="form-group">
+                      <label for="is_featured">Is Featured</label>
+                      <input type="checkbox" id="is_featured" />
+                    </div>
+              
+                    <div class="form-group">
+                      <label for="created_at">Created At</label>
+                      <input type="datetime-local" id="created_at" required />
+                    </div>
+              
+                    <div class="form-group">
+                      <label for="updated_at">Updated At</label>
+                      <input type="datetime-local" id="updated_at" required />
+                    </div>
+              
+                    <button type="submit" class="create-account-btn">Add Product</button>
+                  </form>
+                </div>
+              </div>
+              
+
+        </main>
+        <!-- 2nd sidebar -->
+      
+    </div>
+</body>
+
+<!-- <script src="../js/main.js"></script> -->
+
+</html>

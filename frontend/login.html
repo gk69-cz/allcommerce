@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="./css/style.css" /> 
+  <link rel="stylesheet" href="../frontend/user/css/bootstrap.css" /> 
+  <link rel="stylesheet" href="../frontend/shared/css/header.css" /> 
+<body>
+  <!-- Placeholder for the Navbar -->
+  <div class="navbar" style="height: 64px;">
+    <div class="logo">
+      <span class="title">Allcomm</span>
+    </div>
+    
+    </div>
+  </div>
+
+  <div class="screen-container">
+    <!-- Left section with the image -->
+    <div class="left-section">
+      <img src="../image/regbanner.jpg" alt="Welcome Image" class="welcome-image" />
+    </div>
+
+    <div class="right-section">
+      <div class="user-account-container">
+        <h1>Log In</h1>
+        <p>Enter your credentials to access your account</p>
+        <form class="login-form user-account-form">
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <input type="password" id="password" placeholder="Password" required />
+          </div>
+          <button type="submit" class="create-account-btn">Log In</button>
+        </form>
+        <p class="login-redirect">
+          Don’t have an account? <a href="./signup.html">Sign up</a>
+        </p>
+      </div>
+    </div>
+    
+  </div>
+
+  <div id="footer-container"></div>
+  <!-- Include the external JavaScript file -->
+  <script src="../frontend/js/navFooter.js"></script> 
+  <script src="../frontend/apicalls/mainapis.js"></script> 
+</body>
+</html>

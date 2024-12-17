@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../../../frontend/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #ffffff;
+        /* White background */
+        color: #000000;
+        /* Black text for contents */
+        font-family: Arial, sans-serif;
+    }
+
+    thead {
+        background-color: #1a1a2e;
+
+        /* Black background for headers */
+        color: #ffffff;
+        /* White text for headers */
+    }
+
+    th {
+        font-size: 16px;
+        font-weight: 400;
+        /* Bold headers */
+    }
+
+    td {
+        font-size: 13px;
+        font-weight: 100;
+        /* Non-bold table contents */
+        color: #000000;
+        /* Black text for contents */
+    }
+
+    th,
+    td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 2px solid #ccc;
+        /* Light border */
+    }
+
+    tbody tr:hover {
+        background-color: #f1f1f1;
+        /* Light gray hover effect */
+        cursor: pointer;
+    }
+
+    tbody tr {
+        border-bottom: 1px solid #ddd;
+        /* Light gray border */
+    }
+
+    tbody tr td:first-child {
+        text-align: center;
+    }
+
+    input[type="checkbox"] {
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+
+    /* Highlight row when checkbox is selected */
+    tbody tr.selected {
+        background-color: #f9f9f9;
+        /* Light gray for selected rows */
+    }
+</style>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Allcomm</h2>
+            </div>
+            <nav>
+                <ul>
+
+                    <li onclick="loadContent('orders.html')">
+                        <i class="fas fa-box"></i> Orders
+                    </li>
+                    <li onclick="loadContent('inventory.html')">
+                        <i class="fas fa-warehouse"></i> Inventory
+                    </li>
+                   
+
+                    <li onclick="loadContent('users.html')">
+                        <i class="fas fa-users"></i> Users
+                    </li>
+                    <li onclick="loadContent('payments.html')">
+                        <i class="fas fa-credit-card"></i> Payments
+                    </li>
+                    <li onclick="loadContent('category.html')">
+                        <i class="fas fa-users"></i> Category
+                    </li>
+                    
+
+                    <li onclick="loadContent('settings.html')">
+                        <i class="fas fa-cog"></i> Settings
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <ul>
+                    <li>
+                        <i class="fas fa-user-circle"></i> Profile
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1 style="color: #1a1a2e;">Payments</h1>
+            </header>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th><input type="checkbox" id="select-all" onclick="selectAll(this)"></th>
+                        <th>Payment ID</th>
+                        <th>Order ID</th>
+                        <th>User ID</th>
+                        <th>Payment Method</th>
+                        <th>Payment Status</th>
+                        <th>Payment Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="payment-table-body">
+                    <!-- Table rows will be populated here -->
+                </tbody>
+            </table>
+
+
+        </main>
+        <!-- 2nd sidebar -->
+      
+    </div>
+</body>
+
+<script src="../../js/main.js"></script>
+
+</html>

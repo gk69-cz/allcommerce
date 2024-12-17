@@ -1,0 +1,284 @@
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Verdana, sans-serif;
+    }
+
+    .screen-container {
+     
+      height: 100vh;
+    }
+
+    .categories-section {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .categories-section h2 {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      
+      .categories-container {
+        display: flex;
+        gap: 15px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        scrollbar-width: none; /* For Firefox */
+        -ms-overflow-style: none; /* For Internet Explorer */
+      }
+      
+      .categories-container::-webkit-scrollbar {
+        display: none; /* For Chrome, Safari, and Opera */
+      }
+      
+      .category-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        flex-shrink: 0;
+        width: 181px;
+        height: 213px;
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+      
+      .category-item img {
+        max-width: 140px;
+        margin-bottom: 10px;
+      }
+      
+      .category-item p {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+      
+      .category-item.active {
+        background-color: #1a1a2e;
+        color: #fff;
+      }
+      
+      .category-item.active p {
+        color: #fff;
+      }
+      
+      .category-item:hover {
+        transform: scale(1.05);
+      }
+      
+      .navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+      
+      .navigation-buttons .prev,
+      .navigation-buttons .next {
+        border: none;
+        background-color: #1a1a2e;
+        color: #fff;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      .navigation-buttons .prev:hover,
+      .navigation-buttons .next:hover {
+        background-color: #ff4040;
+      }
+
+      .best-selling-products {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      
+      .category-label {
+        font-size: 1rem;
+        color: #1a1a2e;
+        font-weight: bold;
+      }
+      
+      h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      
+      .view-all-btn {
+        text-decoration: none;
+        background-color: #1a1a2e;
+        color: #fff;
+        padding: 8px 12px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        transition: background-color 0.3s ease;
+      }
+      
+      .view-all-btn:hover {
+        background-color: #ff4040;
+      }
+      
+      .products-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+      }
+      
+      .product-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .product-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      .product-card img {
+        width: 100%;
+        height: auto;
+      }
+      
+      .product-info {
+        padding: 15px;
+        text-align: center;
+      }
+      
+      .product-info h3 {
+        font-size: 1rem;
+        margin: 10px 0;
+      }
+      
+      .price {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        font-size: 0.9rem;
+      }
+      
+      .current-price {
+        color: #1a1a2e;
+        font-weight: bold;
+      }
+      
+      .old-price {
+        text-decoration: line-through;
+        color: #888;
+      }
+      
+      .rating {
+        margin-top: 5px;
+        font-size: 0.8rem;
+        color: #ffa41b;
+      }
+      
+      .wishlist-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #ccc;
+      }
+      
+      .wishlist-icon:hover {
+        color: #1a1a2e;
+      }
+      .slider_section {
+
+        padding: 50px 20px;
+        color: white;
+        
+      }
+      
+      .detail-box h1 {
+        font-size: 2.5rem;
+        color: white;
+        margin-bottom: 20px;
+      }
+      
+      .detail-box p {
+        font-size: 1rem;
+        color: white;
+        margin-bottom: 30px;
+        line-height: 1.5;
+      }
+      
+      .detail-box a {
+        display: inline-block;
+        background-color: white;
+        color: #1a1a2e;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      
+      .detail-box a:hover {
+        background-color: #1a1a2e;
+        color: white;
+        border: 1px solid white;
+      }
+      
+      .img-box img {
+        max-width: 100%;
+        border-radius: 10px;
+      }
+      
+      .carousel-control-prev,
+      .carousel-control-next {
+        color: white;
+        font-size: 1.5rem;
+      }
+      
+      .carousel-control-prev:hover,
+      .carousel-control-next:hover {
+        color: white;
+      }
+      
+      .carousel_btn-box img {
+        margin: 0 20px;
+        filter: brightness(0) invert(1);
+      }
+      
+      .carousel-control-prev i,
+      .carousel-control-next i {
+        font-size: 1.5rem;
+        color: white;
+      }
+      
+      .carousel-indicators [data-bs-target] {
+        background-color: white;
+      }
+      
+      .carousel-indicators .active {
+        background-color: #1a1a2e;
+      }
+      
+
+

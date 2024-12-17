@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Wishlist</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../user/css/home.css" />
+    <link rel="stylesheet" href="../shared/css/header.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./css/individualproduct.css" />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+  <style>
+    /* Main container for product info */
+.product-info {
+    font-family: Arial, sans-serif;
+    color: #1a1a2e;
+    max-width: 500px;
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Product name */
+.product-info h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+/* Rating section */
+.product-info .rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.product-info .rating span {
+    color: #ffd700; /* Gold for stars */
+}
+
+.product-info .status {
+    color: #4caf50; /* Green for in-stock */
+    font-weight: bold;
+}
+
+/* Product price */
+.product-info h2 {
+    font-size: 20px;
+    color: #1a1a2e;
+    margin-bottom: 15px;
+}
+
+/* Product description */
+.product-info p {
+    font-size: 14px;
+    color: #4b4b4b; /* Darker gray for readability */
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Product actions container */
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Quantity Selector */
+.quantity-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.quantity-selector label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1a1a2e;
+}
+
+.quantity-selector input[type="text"] {
+    padding: 8px;
+    border: 1px solid #1a1a2e;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #f9f9f9; /* Light gray for input */
+    color: #1a1a2e;
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quantity-selector input[type="text"]:focus {
+    border-color: #1a1a2e;
+    box-shadow: 0 0 5px rgba(26, 26, 46, 0.5);
+    outline: none;
+}
+
+/* Buttons */
+.add-to-cart-button {
+    padding: 10px 20px;
+    background-color: #1a1a2e;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.add-to-cart-button:hover {
+    background-color: #16213e; /* Slightly darker */
+    transform: translateY(-2px);
+}
+
+.wishlist {
+    font-size: 20px;
+    color: #e94560; /* Bright red */
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.wishlist:hover {
+    transform: scale(1.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-info {
+        max-width: 100%;
+        
+    }
+}
+
+  </style>
+
+<body>
+    <!-- Placeholder for the Navbar -->
+    <div class="navbar" style="height: 64px;">
+        <div class="logo">
+            <span class="title">Allcomm</span>
+        </div>
+        <div class="nav-links">
+            <a href="../user/home.html" class="nav-link" id="home-link">Home</a>
+            <div class="dropdown">
+                <a href="../user/allproducts.html" class="nav-link">Products</a>
+
+            </div>
+
+            <div class="dropdown">
+                <a href="#" class="nav-link">Categories</a>
+                <div class="dropdown-content" id="dropdown-content">
+                    <!-- Categories will be populated here dynamically -->
+                </div>
+            </div>
+
+        </div>
+        <div class="search-bar">
+
+            <button class="search-button" onclick="navigateToWishlist()">
+                <i class="fas fa-heart"></i>
+            </button>
+            <button class="search-button" onclick="navigateToCart()">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+            <button class="search-button" onclick="navigateToAccount()">
+                <i class="fas fa-user"></i>
+            </button>
+        </div>
+        <script src="../shared/js/routing.js"></script>
+    </div>
+
+    <div>
+
+        <!-- part1 -->
+
+        <br><br>
+        <hr><br>
+
+        </section>
+
+
+        <br>
+        <div style="text-align: center;">
+            <div class="product-details">
+                <!-- Image Gallery -->
+                <div class="image-gallery">
+                    <div class="thumbnail-list">
+                        <img id="thumbnail1" src="../../image/phone.jpg" alt="Thumbnail 1">
+                        <img id="thumbnail2" src="../../image/phone.jpg" alt="Thumbnail 2">
+                        <img id="thumbnail3" src="../../image/phone.jpg" alt="Thumbnail 3">
+                        <img id="thumbnail4" src="../../image/phone.jpg" alt="Thumbnail 4">
+                    </div>
+                    <div class="main-image">
+                        <img id="main-image" src="../../image/phone.jpg" alt="Main Product Image">
+                    </div>
+                </div>
+
+                <!-- Product Information -->
+                <div class="product-info">
+                    <h1 id="product-name"></h1>
+                    <div class="rating">
+                        <span id="product-rating"></span>
+                        <span id="reviews-count"></span>
+                        <span id="product-status" class="status"></span>
+                    </div>
+                    <h2 id="product-price"></h2>
+                    <p id="product-description">
+                    </p>
+
+                    <!-- Quantity and Buttons -->
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+
+
+                            <div class="quantity-selector">
+                                <div class="form-group">
+                                    <label for="quantity-input">Quantity</label>
+                                    <input type="text" id="quantity-input" placeholder="Enter quantity" required>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <button class="add-to-cart-button" onclick="Cart()">Add to Cart</button
+                        <button id="wishlist" class="wishlist"><i class="fa fa-heart"></i></button>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <br><br>
+        <hr><br>
+        <!-- footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Exclusive</h3>
+                    <p>Get 10% off your first order</p>
+                    <input type="email" placeholder="Enter your email" class="email-input" />
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p>D08R624</p>
+                    <p>allcomm@gmail.com</p>
+                    <p>+343 4422562</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Account</h3>
+                    <ul>
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Login / Register</a></li>
+                        <li><a href="#">Cart</a></li>
+                        <li><a href="#">Wishlist</a></li>
+                        <li><a href="#">Shop</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Link</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Copyright Christy 2024. All right reserved.</p>
+            </div>
+        </footer>
+
+        <!-- footer end -->
+        <!-- Include the external JavaScript file -->
+        <script src="../shared/js/routing.js"></script>
+        <script src="../../frontend/js/navFooter.js"></script>
+        <script src="./apicalls/individual.js"></script>
+        <script src="./apicalls/addtocart.js"></script>
+</body>
+
+</html>

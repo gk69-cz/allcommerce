@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Wishlist</title>
+  <link rel="stylesheet" href="../css/style.css" /> 
+  <link rel="stylesheet" href="../user/css/home.css" /> 
+  <link rel="stylesheet" href="../shared/css/header.css" /> 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+ <!-- slider stylesheet -->
+ <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+ <!-- bootstrap core css -->
+ <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+ <!-- Custom styles for this template -->
+ <link href="css/style.css" rel="stylesheet" />
+ <!-- responsive style -->
+ <link href="css/responsive.css" rel="stylesheet" />
+ <style>
+
+ </style>
+<body>
+  <!-- Placeholder for the Navbar -->
+  <div class="navbar" style="height: 64px;">
+    <div class="logo">
+      <span class="title">Allcomm</span>
+    </div>
+    <div class="nav-links">
+      <a href="../user/home.html" class="nav-link" id="home-link">Home</a>
+      <div class="dropdown">
+        <a href="../user/allproducts.html" class="nav-link">Products</a>
+        
+      </div>
+      
+      <div class="dropdown">
+        <a href="../user/category.html" class="nav-link">Categories</a>
+        <div class="dropdown-content" id="dropdown-content">
+          <!-- Categories will be populated here dynamically -->
+        </div>
+      </div>
+      
+    </div>
+    <div class="search-bar">
+      
+      <button class="search-button" onclick="navigateToWishlist()">
+        <i class="fas fa-heart"></i> 
+      </button>
+      <button class="search-button" onclick="navigateToCart()">
+        <i class="fas fa-shopping-cart"></i> 
+      </button>
+      <button class="search-button" onclick="navigateToAccount()">
+        <i class="fas fa-user"></i> 
+      </button>
+    </div>
+    <script src="../shared/js/routing.js"></script> 
+  </div>
+
+  <div >
+
+    <!-- part1 -->
+
+    <br><br>
+    <section class="slider_section" style="margin:2px 100px">
+  <div class="slider_container">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Single Static Slide -->
+        <div class="carousel-item active">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-7">
+                <div class="detail-box">
+                  <h1>Discover Premium Products</h1>
+                  <p>
+                    Explore top-quality items curated just for you. Shop now and elevate your lifestyle.
+                  </p>
+                  <a href="#start-shopping">Start Shopping</a>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="img-box">
+                  <img src="../../image/phone.jpg" alt="Premium Products" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel Controls -->
+      
+    </div>
+  </div>
+</section>
+
+
+<br><br><hr>
+      
+    <br><br>
+        <section class="categories-section" style="text-align: center;">
+          <h2>Filter Products</h2>
+          <div class="import-export">
+            <button class="dropdown-btn" data-dropdown="categories-dropdown">Categories</button>
+            <div class="dropdown-content" id="categories-dropdown" style="display: none;">
+                <!-- Categories will be dynamically populated here -->
+            </div>
+        
+            <button class="dropdown-btn" data-dropdown="price-range-dropdown">Price Range</button>
+            <div class="dropdown-content" id="price-range-dropdown" style="display: none;">
+                <!-- Price ranges will be dynamically populated here -->
+            </div>
+        
+            <button class="dropdown-btn" data-dropdown="alphabetical-dropdown">Alphabetical</button>
+            <div class="dropdown-content" id="alphabetical-dropdown" style="display: none;">
+                <!-- Alphabetical options will be dynamically populated here -->
+            </div>
+        </div>
+        
+        </section>
+    
+          <!-- part1 -->
+
+            <!-- part1 -->
+
+            <section class="shop_section layout_padding">
+                <div class="container">
+                  <div class="heading_container heading_center">
+                    <h2>
+                      All Products
+                    </h2>
+                  </div>
+                  <div class="row">
+                    <div class="row" id="product-list">
+                      <!-- Product items will be dynamically added here -->
+                    </div>
+                  </div>
+                
+                </div>
+              </section>
+            
+  
+  </div>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Exclusive</h3>
+            <p>Get 10% off your first order</p>
+            <input type="email" placeholder="Enter your email" class="email-input" />
+        </div>
+        <div class="footer-section">
+            <h3>Support</h3>
+            <p>D08R624</p>
+            <p>allcomm@gmail.com</p>
+            <p>+343 4422562</p>
+        </div>
+        <div class="footer-section">
+            <h3>Account</h3>
+            <ul>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">Login / Register</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Shop</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Link</h3>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; Copyright Christy_Jaison 2024. All right reserved.</p>
+    </div>
+</footer>
+
+  <!-- footer end -->
+  <!-- Include the external JavaScript file -->
+  <script src="../shared/js/routing.js"></script> 
+  <script src="../../frontend/js/navFooter.js"></script> 
+  <script src="./apicalls/allproducts.js"></script> 
+</body>
+</html>
